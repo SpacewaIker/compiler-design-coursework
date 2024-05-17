@@ -310,6 +310,7 @@ Lexing: pass
 Program(FunProto(INT,fib,VarDecl(INT,n)),FunDecl(VOID,main,Block(VarDecl(INT,n),VarDecl(PointerType(INT),result),VarDecl(INT,i),ExprStmt(FunCallExpr(print_s,TypecastExpr(PointerType(CHAR),StrLiteral(How many to calculate? )))),ExprStmt(Assign(VarExpr(n),FunCallExpr(read_i))),ExprStmt(Assign(VarExpr(result),TypecastExpr(PointerType(INT),FunCallExpr(mcmalloc,BinOp(SizeOfExpr(INT),MUL,VarExpr(n)))))),ExprStmt(Assign(VarExpr(i),IntLiteral(0))),While(BinOp(VarExpr(i),LT,VarExpr(n)),Block(ExprStmt(Assign(ArrayAccessExpr(VarExpr(result),VarExpr(i)),FunCallExpr(fib,VarExpr(i)))),ExprStmt(Assign(VarExpr(i),BinOp(VarExpr(i),ADD,IntLiteral(1)))))),ExprStmt(FunCallExpr(print_s,TypecastExpr(PointerType(CHAR),StrLiteral(The first )))),ExprStmt(FunCallExpr(print_i,VarExpr(n))),ExprStmt(FunCallExpr(print_s,TypecastExpr(PointerType(CHAR),StrLiteral( Fibonacci numbers are: )))),ExprStmt(Assign(VarExpr(i),IntLiteral(0))),While(BinOp(VarExpr(i),LT,VarExpr(n)),Block(ExprStmt(FunCallExpr(print_i,ArrayAccessExpr(VarExpr(result),VarExpr(i)))),ExprStmt(FunCallExpr(print_c,ChrLiteral( ))),ExprStmt(Assign(VarExpr(i),BinOp(VarExpr(i),ADD,IntLiteral(1)))))))),FunDecl(INT,fib,VarDecl(INT,n),Block(If(BinOp(VarExpr(n),EQ,IntLiteral(0)),Block(Return(IntLiteral(0))),If(BinOp(VarExpr(n),EQ,IntLiteral(1)),Block(Return(IntLiteral(1))),Block(VarDecl(INT,first),VarDecl(INT,second),VarDecl(INT,i),VarDecl(INT,next),ExprStmt(Assign(VarExpr(first),IntLiteral(0))),ExprStmt(Assign(VarExpr(second),IntLiteral(1))),ExprStmt(Assign(VarExpr(i),IntLiteral(2))),While(BinOp(VarExpr(i),LE,VarExpr(n)),Block(ExprStmt(Assign(VarExpr(next),BinOp(VarExpr(first),ADD,VarExpr(second)))),ExprStmt(Assign(VarExpr(first),VarExpr(second))),ExprStmt(Assign(VarExpr(second),VarExpr(next))),ExprStmt(Assign(VarExpr(i),BinOp(VarExpr(i),ADD,IntLiteral(1)))))),Return(VarExpr(second))))))))
   ```
 
+([fullscreen view](https://raw.githubusercontent.com/SpacewaIker/compiler-design-coursework/main/fib.c.svg?token=GHSAT0AAAAAACRXQ7HHR7QQMEXHAL2R2DWEZSHUHDQ))
 ![AST](fib.c.svg)
 </details>
 
@@ -549,10 +550,12 @@ jr $ra
   Outputs
   <details>
     <summary>Control-flow graph</summary>
+      (<a href="https://raw.githubusercontent.com/SpacewaIker/compiler-design-coursework/main/fib.c_cfg.svg?token=GHSAT0AAAAAACRXQ7HHZ3DAVSASVZDVNFK4ZSHUJQA">Full screen view</a>)
     <img src="fib.c_cfg.svg"/>
   </details>
   
   Interference graph:
+  ([full screen view](https://raw.githubusercontent.com/SpacewaIker/compiler-design-coursework/main/fib.c_intgraph.svg?token=GHSAT0AAAAAACRXQ7HHH46ZMJIAVG3JQJRGZSHUKQQ))
   ![intgraph](fib.c_intgraph.svg)
 
   Final assembly:
